@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>para sa wifey ko aydushshak</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #10101e;
+    --purple: #bba3ff;
+    --pink: #e8b9d4;
+    --cream: #f5eadd;
+    --muted: #aaa5bd;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 15% 20%, #292044 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 80%, #291d38 0%, transparent 45%),
+        var(--bg);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .1; transform: scale(.6); }
+    to { opacity: .9; transform: scale(1.6); }
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    color: #d8b9ff;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatUp 9s linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    15% { opacity: .6; }
+    85% { opacity: .4; }
+    100% { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
+}
+
+.sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+    animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+    from { opacity: .15; transform: scale(.7) rotate(0deg); }
+    to { opacity: .9; transform: scale(1.3) rotate(45deg); }
+}
+
+/* MAIN */
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 950px;
+    width: 90%;
+    margin: auto;
+    padding: 90px 0 70px;
+    text-align: center;
+}
+
+.small-title {
+    color: var(--purple);
+    letter-spacing: 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 7vw, 67px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    animation: fadeIn 1.5s ease;
+}
+
+h1 span {
+    color: var(--pink);
+    font-style: italic;
+}
+
+.intro {
+    max-width: 610px;
+    margin: auto;
+    font-size: 14px;
+    line-height: 2;
+    color: #c6bfd2;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: .5s;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 35px auto;
+    color: var(--pink);
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    width: 65px;
+    background: linear-gradient(90deg, transparent, #806b9d);
+}
+
+.choose-text {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+}
+
+/* LETTER CARDS */
+
+.letters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s ease;
+    pointer-events: none;
+}
+
+.letters.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.card {
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(206,183,255,.17);
+    border-radius: 17px;
+    padding: 30px 18px;
+    cursor: pointer;
+    transition: .4s ease;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.card::before {
+    content: "♡";
+    display: block;
+    font-size: 48px;
+    color: var(--pink);
+    margin-bottom: 20px;
+    transition: .5s;
+}
+
+.card:hover::before {
+    transform: scale(1.3) rotate(12deg);
+    color: var(--purple);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,.09);
+    border-color: var(--purple);
+    box-shadow: 0 15px 45px rgba(150,110,220,.2);
+}
+
+.card-number {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--purple);
+    margin-bottom: 9px;
+}
+
+.card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.open-label {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--pink);
+    transition: .3s;
+}
+
+.card:hover .open-label {
+    letter-spacing: 4px;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 70px;
+    color: #817a94;
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 2;
+}
+
+/* MODAL */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(5,5,15,.88);
+    backdrop-filter: blur(15px);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.letter-paper {
+    background: #f5eadf;
+    color: #42374b;
+    max-width: 540px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    padding: 35px;
+    position: relative;
+    transform: translateY(40px) scale(.9);
+    transition: .5s cubic-bezier(.2,.8,.2,1);
+    box-shadow: 0 20px 80px rgba(0,0,0,.5);
+}
+
+.modal.active .letter-paper {
+    transform: translateY(0) scale(1);
+}
+
+.close {
+    position: absolute;
+    top: 14px;
+    right: 17px;
+    background: none;
+    border: none;
+    color: #75627e;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.letter-top {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #a38bad;
+    margin-bottom: 25px;
+}
+
+.letter-decoration {
+    text-align: center;
+    font-size: 35px;
+    color: #b58bbd;
+    margin-bottom: 20px;
+    animation: heartbeat 2s infinite;
+}
+
+.letter-paper h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.letter-message {
+    font-size: 13px;
+    line-height: 2.1;
+    white-space: pre-line;
+    color: #62566b;
+}
+
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: #96749f;
+    margin-top: 30px;
+    text-align: right;
+}
+
+.letter-heart {
+    text-align: center;
+    margin-top: 25px;
+    color: #bb87ad;
+    font-size: 23px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+    .container {
+        padding-top: 65px;
+    }
+
+    .letters {
+        grid-template-columns: 1fr;
+        max-width: 390px;
+        margin: auto;
+    }
+
+    .card {
+        padding: 23px 15px;
+    }
+
+    .card::before {
+        font-size: 35px;
+        margin-bottom: 12px;
+    }
+
+    .letter-paper {
+        padding: 27px 22px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<main class="container">
+
+    <div class="small-title">AUEHEHSISUSDJ, I LOVE YOUUU SOSOSOSOSOSO MUCH ♡</div>
+
+    <h1>
+        FOR YOOUOUUUU<br>
+        <span>WIFEYYEYEYY KO</span>
+    </h1>
+
+    <p class="intro">
+        For our 5th monthsary, since sobrang onti nalang ng time ko
+        because I forgot na monthsary natin, I made you this website
+        para you can open this website over and over again when you
+        need or want or miss me and more.
+        <br><br>
+        Since 'di naman ako palaging available, naisipan ko gawin 'to for you YSYWIAHSUWYAUIDSLZMXKSOAKAJ(I'M SO FUCKING SORRY, I USED AI TO DESIGN THIS WEBSITE KASI I DON'T HAVE ENOUGH TIME NA, I PLANNED IT ALL AND AKO NAG CODE LAHAT NG FUNCTIONS 😿).
+    </p>
+
+    <div class="divider">♡</div>
+
+    <p class="choose-text">CHOOSE A LETTER, WIFEYEYEYEYYY</p>
+
+    <section class="letters" id="letters">
+
+        <div class="card" onclick="openLetter(0)">
+            <div class="card-number"></div>
+            <h2>Miss me?</h2>
+            <p>OPEN TS WHEN YOU MISS ME AGEUEHSUSJSUSUA</p>
+            <span class="open-label"></span>
+        </div>
+
+        <div class="card" onclick="openLetter(1)">
+            <div class="card-number"></div>
+            <h2>Feeling sad?</h2>
+            <p>ARE YOU SAD? ;( OPEN ME</p>
+            <span class="open-label"></span>
+        </div>
+
+        <div class="card" onclick="openLetter(2)">
+            <div class="card-number"></div>
+            <h2>Mad at me?</h2>
+            <p>HALAAAAA KWHWAOSJAHAIJXSJAJMA ARE YOU MAD AT ME, Edi open mo'ko, hmp</p>
+            <span class="open-label"></span>
+        </div>
+
+    </section>
+
+    <footer>
+        
+        <br>
+        
+    </footer>
+
+</main>
+
+
+<!-- LETTER POPUP -->
+
+<div class="modal" id="modal" onclick="outsideClose(event)">
+
+    <div class="letter-paper">
+
+        <button class="close" onclick="closeLetter()">×</button>
+
+        <div class="letter-top">AKCKCKKCKC I DEFINITELY MISS YOU SOOOO MUCH MORE BABAYYYYWYWUA</div>
+
+        <div class="letter-decoration">♡</div>
+
+        <h2 id="modalTitle"></h2>
+
+        <div class="letter-message" id="modalMessage"></div>
+
+        <div class="signature">
+            With love,<br>
+            Riez ♡
+        </div>
+
+        <div class="letter-heart">♥</div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+// SHOW LETTERS AFTER 3 SECONDS
+
+setTimeout(() => {
+    document.getElementById("letters").classList.add("show");
+}, 3000);
+
+
+// LETTER CONTENT
+
+const letters = [
+
+    {
+        title: "SO YOU'RE MISSING ME, HUH??!1!1 ACKKCKDKCK",
+
+        message: `HAIAIIAIAIA BABYYYYY!1!1!1!.
+
+Since you opened this, i'm assuming you're missing me and tbh, I MISS YOUUU SOOSOSOSO MUCH MOREEE AHJDJDJAUSHS. I FUCKING WISH I COULD BE THERE WITH YOU RN LIKE WHAT THE FUCK, SPEND TIME WITH YOU, AND HOLD YOUR HAND, LIKE AKXMXKSKIDPAKSJDOSJCJDK
+
+Alam ko na 'di madali 'yung gan'tong distance, especially when all we want is magkasama tayo prolly cuddling rn. But please don't EVERRR think na just because I'm not physically beside you, I'm any less present in your life, okok?
+
+I hope you alam mo na kahit sa busiest days ko, I'M STILL THINKING ABOUT YOUUUOUOUOUOUU.
+
+If I could choose where to be right now, I'd choose to be with you, LIKE OMFYDHSIAHAHAUSJSHYSUXJ.
+
+I love you so much, baby, my wife, wifey ko, misis ko, honey ko, mahal ko, princess, Aeya. More than these little paragraphs could ever explain!1!1!
+
+And hey, don't miss me too much, okay? I'll always be rooting for you. ;) ♡`
+    },
+
+    {
+        title: "I can't have you being sad like this!! ;(((",
+
+        message: `babyy!
+
+First of all, I hope you're being gentle with yourself today, okay?
+
+I don't know exactly what happened or what's going through your mind right now, pero sana alam mo na you don't have to pretend to be okay all the time okok?
+
+You don't have to force yourself to smile just because you think you should!! 😋
+
+IT'S OKAY TO HAVE BAD DAYSSSS, IT'S OKAY TO FEEL TIRED, AND IHS OKAY OF YOU DON'T HAVE THE RIGHT WORDS TO EXPLAIN WHAT YOU'RE FEELING!!! 😡😡
+
+REMEMBER, ONE BAD DAY IS NOT ENOUGH PARA MA-BREAL N'YO SI AEYAA!!! MY BABY IS SO STRONG KAYAAA!
+
+I'm proud of you, even for the little things that you think don't matter.
+
+You deserve patience, understanding, and happiness.
+
+I love you soooooooo, SOOOOOOOOOO MUCH, baby. Please take care of yourself, okay?
+
+You matter so much to me. ;D ♡`
+    },
+
+    {
+        title: "Halaa ;(",
+
+        message: `haiiaiai, babyy.
+
+Since you're reading this, mag a-assume ako na i did something stupid nanaman that made you upset or mad;(
+
+First of all, ayoko maramdaman mo na need mo i-hide 'yung feelings mo para lang ma-iwasan 'yung argument natin, mkay?
+
+If I hurt you, I want to understand kung anong ginawa ko and why it affected you that way.
+
+I'm not always going to get everything right, and alam ko na loving someone also means learning how to understand them better.
+
+I don't want to dismiss your feelings, make excuses, or turn everything into an argument.
+
+You deserve to be heard, especially by someone who loves you.
+
+I hope kayanin natin na i-understand ang isa't-isa kahit na mahirap misis ko;(
+
+I'm sorry sa mga mistakes ko, baby, i'm genuinely sorry.
+
+I love you so much, always, Aeya. And I want to keep learning how to love you better.`
+    }
+
+];
+
+
+// OPEN LETTER
+
+function openLetter(index) {
+
+    const letter = letters[index];
+
+    document.getElementById("modalTitle").textContent = letter.title;
+    document.getElementById("modalMessage").textContent = letter.message;
+
+    document.getElementById("modal").classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+
+// CLOSE LETTER
+
+function closeLetter() {
+
+    document.getElementById("modal").classList.remove("active");
+    document.body.style.overflow = "auto";
+
+}
+
+
+// CLOSE OUTSIDE
+
+function outsideClose(event) {
+
+    if (event.target.id === "modal") {
+        closeLetter();
+    }
+
+}
+
+
+// ESCAPE KEY
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeLetter();
+    }
+
+});
+
+
+// GENERATE STARS
+
+const starContainer = document.getElementById("stars");
+
+for (let i = 0; i < 110; i++) {
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 4 + "s";
+    star.style.animationDuration = (2 + Math.random() * 4) + "s";
+
+    starContainer.appendChild(star);
+
+}
+
+
+// FLOATING HEARTS
+
+setInterval(() => {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = Math.random() > .5 ? "♡" : "♥";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (6 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 11000);
+
+}, 1000);
+
+
+// FLOATING SPARKLES
+
+setInterval(() => {
+
+    const sparkle = document.createElement("div");
+
+    sparkle.className = "sparkle";
+    sparkle.innerHTML = "✦";
+
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.top = Math.random() * 100 + "vh";
+    sparkle.style.color = "#d9c4ff";
+    sparkle.style.fontSize = (8 + Math.random() * 12) + "px";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 2200);
+
+}, 700);
+
+</script>
+
+</body>
+          </html>
+          
